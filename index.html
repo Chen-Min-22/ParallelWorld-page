@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ParallelWorld: verifier-guided prospective exploration for active embodied reasoning." />
+  <title>ParallelWorld | Active Embodied Reasoning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="wordmark" href="#top">Parallel<span>World</span></a>
+      <div class="nav-links">
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#qualitative">Qualitative</a>
+        <a href="#bibtex">BibTeX</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Active embodied reasoning · test-time scaling</p>
+        <h1>Parallel<span>World</span></h1>
+        <p class="tagline">Prospective world simulation for deliberate embodied exploration.</p>
+        <p class="authors">Authors · Affiliation</p>
+        <div class="actions" aria-label="Paper links">
+          <a class="button button-primary" href="#method">Explore method <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="#results">See results <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <div class="mark-grid"><span></span><span></span><span></span><span></span></div>
+        <div class="mark-core">PW</div>
+        <div class="mark-caption">simulate<br />compare<br />act</div>
+      </div>
+    </section>
+
+    <section class="hero-figure shell" aria-labelledby="pipeline-title">
+      <div class="section-kicker" id="pipeline-title">01 / Pipeline</div>
+      <figure class="media-frame media-frame-dark">
+        <img src="assets/pipeline.png" alt="ParallelWorld pipeline showing prospective worlds, verifier selection, and top-1 route answering" />
+      </figure>
+      <p class="figure-note">The verifier branches from restorable simulator states, retains an adaptive set of futures, and passes one physically consistent route to the answer agent.</p>
+    </section>
+
+    <section class="intro-band shell" id="paper">
+      <div class="section-kicker">The idea</div>
+      <div class="intro-grid">
+        <h2>Reason before committing.</h2>
+        <p>Embodied agents often act from incomplete observations. ParallelWorld lets them inspect multiple executable futures before choosing what evidence to trust. A verifier ranks candidate trajectories, while an answer agent reasons over the selected top-1 route.</p>
+      </div>
+    </section>
+
+    <section class="method shell" id="method">
+      <div class="section-kicker">02 / Method</div>
+      <div class="method-grid">
+        <article class="method-card">
+          <span class="card-index">01</span>
+          <h3>Expand</h3>
+          <p>Enumerate camera and task actions from every retained world and render their prospective outcomes.</p>
+        </article>
+        <article class="method-card method-card-accent">
+          <span class="card-index">02</span>
+          <h3>Verify</h3>
+          <p>Rank candidate branches by task-relevant visibility, ambiguity reduction, and complementary evidence.</p>
+        </article>
+        <article class="method-card">
+          <span class="card-index">03</span>
+          <h3>Answer</h3>
+          <p>Reconstruct the highest-ranked root-to-leaf route and reason over its physically consistent observations.</p>
+        </article>
+      </div>
+      <div class="schedule">
+        <div>
+          <p class="mini-label">Adaptive Top-K</p>
+          <h3>Explore wide. Converge deliberately.</h3>
+        </div>
+        <div class="schedule-track" aria-label="Adaptive Top-K schedule">
+          <div class="schedule-step"><b>Odd</b><span>expand</span><strong>K &gt; 1</strong></div>
+          <div class="schedule-line"></div>
+          <div class="schedule-step"><b>Even</b><span>converge</span><strong>K = 1</strong></div>
+          <div class="schedule-line"></div>
+          <div class="schedule-step"><b>Odd</b><span>expand</span><strong>K &gt; 1</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results shell" id="results">
+      <div class="section-kicker">03 / Results</div>
+      <div class="results-heading">
+        <h2>Evidence acquired with intent.</h2>
+        <p>On ESI-Bench, ParallelWorld improves over sequential Active Exploration across all 28 evaluated subcategories.</p>
+      </div>
+      <div class="metric-row">
+        <div class="metric"><strong>28</strong><span>evaluated subcategories</span></div>
+        <div class="metric"><strong>+20.00</strong><span>pts · Partial Occlusion</span></div>
+        <div class="metric"><strong>+18.91</strong><span>pts · Unobserved Change</span></div>
+      </div>
+      <div class="results-placeholder" role="img" aria-label="Placeholder for the main quantitative results table">
+        <div class="placeholder-label">Main quantitative results</div>
+        <div class="placeholder-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p>Replace this panel with <code>main_results</code> when the final table is ready.</p>
+      </div>
+    </section>
+
+    <section class="qualitative shell" id="qualitative">
+      <div class="section-kicker">04 / Qualitative</div>
+      <div class="qualitative-heading">
+        <h2>Seeing the useful future.</h2>
+        <p>Gray views are unselected candidates; colored views are retained by the verifier. The branches shown here are illustrative.</p>
+      </div>
+      <figure class="media-frame media-frame-light">
+        <img src="assets/quality.png" alt="Qualitative comparison between Active Exploration and ParallelWorld" />
+      </figure>
+    </section>
+
+    <section class="closing shell">
+      <div class="closing-rule"></div>
+      <p>ParallelWorld turns test-time computation into a controlled search over visual futures, helping embodied agents gather better evidence before they answer.</p>
+    </section>
+
+    <section class="bibtex shell" id="bibtex">
+      <div class="section-kicker">Citation</div>
+      <div class="bib-header"><h2>BibTeX</h2><button class="copy-button" type="button" id="copy-bib">Copy</button></div>
+      <pre id="bib-content"><code>@inproceedings{parallelworld2026,
+  title     = {ParallelWorld: Prospective World Simulation for Active Embodied Reasoning},
+  author    = {Authors},
+  booktitle = {arXiv},
+  year      = {2026}
+}</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer shell"><span>ParallelWorld</span><span>Active embodied reasoning</span></footer>
+  <script>
+    const copyButton = document.getElementById('copy-bib');
+    const bib = document.querySelector('#bib-content code').textContent;
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(bib);
+        copyButton.textContent = 'Copied';
+        setTimeout(() => { copyButton.textContent = 'Copy'; }, 1600);
+      } catch (_) {
+        copyButton.textContent = 'Select text';
+      }
+    });
+  </script>
+</body>
+</html>
