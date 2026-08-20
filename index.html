@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ParallelWorld: verifier-guided prospective exploration for active embodied reasoning." />
+  <meta name="description" content="ParallelWorld: Test-Time Scaling for Embodied Reasoning" />
   <title>ParallelWorld | Active Embodied Reasoning</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -14,8 +14,8 @@
       <h1>ParallelWorld</h1>
       <p class="tagline">Prospective world simulation for deliberate embodied exploration.</p>
       <p class="authors">
-        <span>Min Chen<sup>*,</sup></span>
-        <span>Shengjun Zhang<sup>*,</sup></span>
+        <span>Min Chen<sup>*</sup>,</span>
+        <span>Shengjun Zhang<sup>*</sup>,</span>
         <span>Yuxin Li,</span>
         <span>Yueqi Duan</span>
       </p>
@@ -31,7 +31,7 @@
       <h2 class="section-title">Abstract</h2>
       <p class="body-copy">Embodied reasoning constitutes a fundamental capability of embodied intelligence, serving as the basis for autonomous perception, reasoning, and interaction within physical environments. Recent studies have shifted the paradigm of embodied reasoning from static perception toward dynamic exploration, where agents acquire task-relevant information through interactions with the environment.
 However, existing active reasoning approaches generally generate exploration trajectories incrementally without long-horizon planning. Even recently emerged test-time scaling frameworks often resort to myopic, single-step lookaheads, which struggle to resolve the delayed feedback inherent in complex, occluded spatial environments.
-To address this limitation, we propose \textbf{ParallelWorld}, an adaptive, multi-horizon test-time scaling framework for embodied reasoning. Instead of greedy, single-step trials, ParallelWorld empowers agents to adaptively simulate and evaluate multi-step future trajectories in parallel before committing to an action.
+To address this limitation, we propose ParallelWorld, an adaptive, multi-horizon test-time scaling framework for embodied reasoning. Instead of greedy, single-step trials, ParallelWorld empowers agents to adaptively simulate and evaluate multi-step future trajectories in parallel before committing to an action.
 Specifically, we introduce a verifier-guided tree-search paradigm. Starting from the current state, ParallelWorld branches into multiple parallel trajectories and rolls them out continuously across a multi-step horizon. At each simulation step, a verifier agent evaluates the intermediate state transitions, dynamically pruning unpromising branches and prioritizing paths with the most task-relevant evidence. Once the multi-step prospective simulation is complete, the agent synthesizes the long-horizon outcomes to commit to the optimal action sequence. Finally, an answer agent performs reasoning over the selected trajectory to produce the final reasoning.
 Extensive experiments on ESI-Bench demonstrate that ParallelWorld consistently improves active perception and reasoning performance. </p>
     </section>
@@ -70,6 +70,7 @@ Extensive experiments on ESI-Bench demonstrate that ParallelWorld consistently i
         <div class="metric"><strong>+20.00</strong><span>pts · Partial Occlusion</span></div>
         <div class="metric"><strong>+18.91</strong><span>pts · Unobserved Change</span></div>
       </div>
+      <br>
       <figure class="media-frame results-figure">
         <img
           src="assets/Main_Results.png"
@@ -92,8 +93,8 @@ Extensive experiments on ESI-Bench demonstrate that ParallelWorld consistently i
       <div class="section-kicker">Citation</div>
       <div class="bib-header"><h2>BibTeX</h2><button class="copy-button" type="button" id="copy-bib">Copy</button></div>
       <pre id="bib-content"><code>@inproceedings{parallelworld2026,
-  title     = {ParallelWorld: Prospective World Simulation for Active Embodied Reasoning},
-  author    = {First Author and Second Author and Third Author and Fourth Author},
+  title     = {ParallelWorld: Test-Time Scaling for Embodied Reasoning},
+  author    = {Chen, Min and Zhang, Shengjun and Li, Yuxin and Duan, Yueqi},
   booktitle = {arXiv},
   year      = {2026}
 }</code></pre>
