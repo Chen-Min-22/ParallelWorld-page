@@ -8,34 +8,16 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav shell" aria-label="Primary navigation">
-      <a class="wordmark" href="#top">Parallel<span>World</span></a>
-      <div class="nav-links">
-        <a href="#method">Method</a>
-        <a href="#results">Results</a>
-        <a href="#qualitative">Qualitative</a>
-        <a href="#bibtex">BibTeX</a>
-      </div>
-    </nav>
-  </header>
-
   <main id="top">
     <section class="hero shell">
-      <div class="hero-copy">
-        <p class="eyebrow">Active embodied reasoning · test-time scaling</p>
-        <h1>Parallel<span>World</span></h1>
-        <p class="tagline">Prospective world simulation for deliberate embodied exploration.</p>
-        <p class="authors">Authors · Affiliation</p>
-        <div class="actions" aria-label="Paper links">
-          <a class="button button-primary" href="#method">Explore method <span aria-hidden="true">↓</span></a>
-          <a class="button button-secondary" href="#results">See results <span aria-hidden="true">↓</span></a>
-        </div>
-      </div>
-      <div class="hero-mark" aria-hidden="true">
-        <div class="mark-grid"><span></span><span></span><span></span><span></span></div>
-        <div class="mark-core">PW</div>
-        <div class="mark-caption">simulate<br />compare<br />act</div>
+      <p class="eyebrow">Active embodied reasoning · test-time scaling</p>
+      <h1>ParallelWorld</h1>
+      <p class="tagline">Prospective world simulation for deliberate embodied exploration.</p>
+      <p class="authors">Authors · Affiliation</p>
+      <div class="actions" aria-label="Paper links">
+        <a class="button button-primary" href="#method">Method</a>
+        <a class="button button-secondary" href="#results">Results</a>
+        <a class="button button-secondary" href="#bibtex">BibTeX</a>
       </div>
     </section>
 
@@ -48,11 +30,8 @@
     </section>
 
     <section class="intro-band shell" id="paper">
-      <div class="section-kicker">The idea</div>
-      <div class="intro-grid">
-        <h2>Reason before committing.</h2>
-        <p>Embodied agents often act from incomplete observations. ParallelWorld lets them inspect multiple executable futures before choosing what evidence to trust. A verifier ranks candidate trajectories, while an answer agent reasons over the selected top-1 route.</p>
-      </div>
+      <h2>Abstract</h2>
+      <p class="body-copy">Embodied agents must reason about physical environments through goal-directed perception and interaction. ParallelWorld is a verifier-guided test-time search framework that expands multiple executable futures from restorable simulator states, ranks their visual evidence, and retains informative branches through an adaptive Top-$K$ strategy. The answer model then reasons over a single physically consistent route. On ESI-Bench, ParallelWorld improves active embodied reasoning over sequential exploration across the evaluated subcategories.</p>
     </section>
 
     <section class="method shell" id="method">
@@ -116,11 +95,6 @@
       <figure class="media-frame media-frame-light">
         <img src="assets/quality.png" alt="Qualitative comparison between Active Exploration and ParallelWorld" />
       </figure>
-    </section>
-
-    <section class="closing shell">
-      <div class="closing-rule"></div>
-      <p>ParallelWorld turns test-time computation into a controlled search over visual futures, helping embodied agents gather better evidence before they answer.</p>
     </section>
 
     <section class="bibtex shell" id="bibtex">
