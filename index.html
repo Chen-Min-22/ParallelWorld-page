@@ -29,7 +29,11 @@
 
     <section class="intro-band shell" id="paper">
       <h2 class="section-title">Abstract</h2>
-      <p class="body-copy">Embodied agents must reason about physical environments through goal-directed perception and interaction. ParallelWorld is a verifier-guided test-time search framework that expands multiple executable futures from restorable simulator states, ranks their visual evidence, and retains informative branches through an adaptive Top-$K$ strategy. The answer model then reasons over a single physically consistent route. On ESI-Bench, ParallelWorld improves active embodied reasoning over sequential exploration across the evaluated subcategories.</p>
+      <p class="body-copy">Embodied reasoning constitutes a fundamental capability of embodied intelligence, serving as the basis for autonomous perception, reasoning, and interaction within physical environments. Recent studies have shifted the paradigm of embodied reasoning from static perception toward dynamic exploration, where agents acquire task-relevant information through interactions with the environment.
+However, existing active reasoning approaches generally generate exploration trajectories incrementally without long-horizon planning. Even recently emerged test-time scaling frameworks often resort to myopic, single-step lookaheads, which struggle to resolve the delayed feedback inherent in complex, occluded spatial environments.
+To address this limitation, we propose \textbf{ParallelWorld}, an adaptive, multi-horizon test-time scaling framework for embodied reasoning. Instead of greedy, single-step trials, ParallelWorld empowers agents to adaptively simulate and evaluate multi-step future trajectories in parallel before committing to an action.
+Specifically, we introduce a verifier-guided tree-search paradigm. Starting from the current state, ParallelWorld branches into multiple parallel trajectories and rolls them out continuously across a multi-step horizon. At each simulation step, a verifier agent evaluates the intermediate state transitions, dynamically pruning unpromising branches and prioritizing paths with the most task-relevant evidence. Once the multi-step prospective simulation is complete, the agent synthesizes the long-horizon outcomes to commit to the optimal action sequence. Finally, an answer agent performs reasoning over the selected trajectory to produce the final reasoning.
+Extensive experiments on ESI-Bench demonstrate that ParallelWorld consistently improves active perception and reasoning performance. </p>
     </section>
 
     <section class="method shell" id="method">
@@ -37,7 +41,6 @@
       <figure class="media-frame media-frame-dark method-pipeline">
         <img src="assets/Pipeline.png" alt="ParallelWorld pipeline showing prospective worlds, verifier selection, and top-1 route answering" />
       </figure>
-      <p class="figure-note">The verifier branches from restorable simulator states, retains an adaptive set of futures, and passes one physically consistent route to the answer agent.</p>
       <div class="method-grid">
         <article class="method-card">
           <span class="card-index">01</span>
@@ -72,17 +75,13 @@
           src="assets/Main_Results.png"
           alt="Main quantitative results on ESI-Bench"
         />
-        <figcaption>
-          Quantitative results on ESI-Bench across Passive Single-View,
-          Active Exploration, ParallelWorld, and Ground-Truth Passive.
-        </figcaption>
       </figure>
     </section>
 
     <section class="qualitative shell" id="qualitative">
       <h2 class="section-title">Qualitative Results</h2>
       <div class="qualitative-heading">
-        <p>Gray views are unselected candidates; colored views are retained by the verifier. The branches shown here are illustrative.</p>
+        <p>The sequential active exploration baseline follows a single trajectory whose observations remain ambiguous and eventually predicts an incorrect answer. In contrast, ParallelWorld evaluates multiple candidate actions in simulated future worlds, as illustrated by the stacked views at each step. The verifier selects trajectories that progressively expose the relative positions of the lamp and projector. The selected evidence clearly indicates that the gap of the two objects, enabling the answer agent to produce the correct prediction. This example demonstrates how prospective simulation and verifier-guided selection improve evidence acquisition over single-trajectory exploration.</p>
       </div>
       <figure class="media-frame media-frame-light">
         <img src="assets/Qualitative.png" alt="Qualitative comparison between Active Exploration and ParallelWorld" />
