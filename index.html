@@ -13,7 +13,14 @@
       <p class="eyebrow">Active embodied reasoning · test-time scaling</p>
       <h1>ParallelWorld</h1>
       <p class="tagline">Prospective world simulation for deliberate embodied exploration.</p>
-      <p class="authors">Authors · Affiliation</p>
+      <p class="authors">
+        <span>First Author<sup>*</sup></span>
+        <span>Second Author<sup>*</sup></span>
+        <span>Third Author</span>
+        <span>Fourth Author</span>
+      </p>
+      <p class="affiliation">Tsinghua University</p>
+      <p class="equal-contribution"><sup>*</sup> Equal contribution</p>
       <div class="actions" aria-label="Paper links">
         <a class="button button-primary" href="#method">Method</a>
         <a class="button button-secondary" href="#results">Results</a>
@@ -21,21 +28,17 @@
       </div>
     </section>
 
-    <section class="hero-figure shell" aria-labelledby="pipeline-title">
-      <div class="section-kicker" id="pipeline-title">01 / Pipeline</div>
-      <figure class="media-frame media-frame-dark">
-        <img src="assets/pipeline.png" alt="ParallelWorld pipeline showing prospective worlds, verifier selection, and top-1 route answering" />
-      </figure>
-      <p class="figure-note">The verifier branches from restorable simulator states, retains an adaptive set of futures, and passes one physically consistent route to the answer agent.</p>
-    </section>
-
     <section class="intro-band shell" id="paper">
-      <h2>Abstract</h2>
+      <h2 class="section-title">Abstract</h2>
       <p class="body-copy">Embodied agents must reason about physical environments through goal-directed perception and interaction. ParallelWorld is a verifier-guided test-time search framework that expands multiple executable futures from restorable simulator states, ranks their visual evidence, and retains informative branches through an adaptive Top-$K$ strategy. The answer model then reasons over a single physically consistent route. On ESI-Bench, ParallelWorld improves active embodied reasoning over sequential exploration across the evaluated subcategories.</p>
     </section>
 
     <section class="method shell" id="method">
-      <div class="section-kicker">02 / Method</div>
+      <h2 class="section-title">Method</h2>
+      <figure class="media-frame media-frame-dark method-pipeline">
+        <img src="assets/Pipeline.png" alt="ParallelWorld pipeline showing prospective worlds, verifier selection, and top-1 route answering" />
+      </figure>
+      <p class="figure-note">The verifier branches from restorable simulator states, retains an adaptive set of futures, and passes one physically consistent route to the answer agent.</p>
       <div class="method-grid">
         <article class="method-card">
           <span class="card-index">01</span>
@@ -69,9 +72,8 @@
     </section>
 
     <section class="results shell" id="results">
-      <div class="section-kicker">03 / Results</div>
+      <h2 class="section-title">Main Results</h2>
       <div class="results-heading">
-        <h2>Evidence acquired with intent.</h2>
         <p>On ESI-Bench, ParallelWorld improves over sequential Active Exploration across all 28 evaluated subcategories.</p>
       </div>
       <div class="metric-row">
@@ -79,21 +81,25 @@
         <div class="metric"><strong>+20.00</strong><span>pts · Partial Occlusion</span></div>
         <div class="metric"><strong>+18.91</strong><span>pts · Unobserved Change</span></div>
       </div>
-      <div class="results-placeholder" role="img" aria-label="Placeholder for the main quantitative results table">
-        <div class="placeholder-label">Main quantitative results</div>
-        <div class="placeholder-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <p>Replace this panel with <code>main_results</code> when the final table is ready.</p>
-      </div>
+      <figure class="media-frame results-figure">
+        <img
+          src="assets/Main_Results.png"
+          alt="Main quantitative results on ESI-Bench"
+        />
+        <figcaption>
+          Quantitative results on ESI-Bench across Passive Single-View,
+          Active Exploration, ParallelWorld, and Ground-Truth Passive.
+        </figcaption>
+      </figure>
     </section>
 
     <section class="qualitative shell" id="qualitative">
-      <div class="section-kicker">04 / Qualitative</div>
+      <h2 class="section-title">Qualitative Results</h2>
       <div class="qualitative-heading">
-        <h2>Seeing the useful future.</h2>
         <p>Gray views are unselected candidates; colored views are retained by the verifier. The branches shown here are illustrative.</p>
       </div>
       <figure class="media-frame media-frame-light">
-        <img src="assets/quality.png" alt="Qualitative comparison between Active Exploration and ParallelWorld" />
+        <img src="assets/Qualitative.png" alt="Qualitative comparison between Active Exploration and ParallelWorld" />
       </figure>
     </section>
 
@@ -102,7 +108,7 @@
       <div class="bib-header"><h2>BibTeX</h2><button class="copy-button" type="button" id="copy-bib">Copy</button></div>
       <pre id="bib-content"><code>@inproceedings{parallelworld2026,
   title     = {ParallelWorld: Prospective World Simulation for Active Embodied Reasoning},
-  author    = {Authors},
+  author    = {First Author and Second Author and Third Author and Fourth Author},
   booktitle = {arXiv},
   year      = {2026}
 }</code></pre>
